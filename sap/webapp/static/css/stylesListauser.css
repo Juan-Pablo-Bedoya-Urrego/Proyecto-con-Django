@@ -1,0 +1,125 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.all{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 80px);
+    background: linear-gradient(rgb(179, 27, 27),rgb(99, 26, 26));
+}
+
+.form{
+    width: 100%;
+    height: 50px;
+    max-width: 400px;
+    position: relative;
+    overflow: hidden;
+}
+
+.form input{
+    margin-top: 5px;
+    font-size: 15px;
+    width: 100%;
+    height: 100%;
+    background: none;
+    color: white;
+    border: none;
+    outline: 0;
+}
+
+.form .lbl-user{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    border-bottom: 1px solid black;
+}
+.form .lbl-user::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 100%;
+    height: 100%;
+    border-bottom: 3px solid gray;
+    transform: translateX(-100%);
+    transition: all 0.3s ease;
+}
+
+.txt-user{
+    position: absolute;   
+    bottom: 5px;
+    left: 0;
+    transition: all 0.3s ease;
+    color: white;
+}
+
+.form input:focus + .lbl-user .txt-user {
+    transform: translateY(-150%);
+    font-size: 14px;
+    color: gray;
+}
+
+.form input:focus + .lbl-user::after{
+    transform: translateX(0%);
+}
+
+.container{
+    border: solid 1px rgb(255, 255, 255, 0.2);
+}
+
+table{
+    color: white;
+    font-size: 14px;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+thead{
+    background: rgb(214, 24, 24);
+}
+
+th{
+    padding: 20px 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+td{
+    padding: 15px;
+    border-bottom: solid 1px rgb(255, 255, 255, 0.2);
+}
+
+tbody tr{
+    cursor: pointer;
+}
+
+tbody tr:hover{
+    background: rgb(161, 90, 90);
+}
+
+tbody tr td a {
+    color: white;
+    text-decoration: none;
+    padding: 5px;
+    background: black;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+tbody tr td a:hover {
+    background-color: rgb(219, 126, 126);
+    border: 1px solid rgb(255, 255, 255);
+    color: white;
+}
+
+.product-image{
+    width: 50px;
+    height: 50px;
+}

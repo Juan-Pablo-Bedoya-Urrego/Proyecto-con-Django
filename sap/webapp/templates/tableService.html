@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/styleListvehiculo.css' %}">
+</head>
+
+<body>
+    {% include 'components/menuAdmin.html' %}
+    <div class="all">
+        <div class="containerForm">
+            <h2>Buscar:</h2>
+            <form class="form" method="GET" action="">
+                <input type="text" name="search" id="search" class="form-control">
+                <label class="lbl-service" for="search">
+                    <span class="txt-service">
+                        Buscar
+                    </span>
+                </label>
+            </form>
+            <br>
+            <br>
+            <h2>Lista de Usuarios</h2>
+            <div class="container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nombre Producto</th>
+                            <th>Descripcion Producto</th>
+                            <th>Precio Producto</th>
+                            <th>Imagen Producto</th>                            
+                            <th>Eliminar</th>
+                            <th>Actualizar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for service in servicios %}
+                        <tr>
+                            <td>{{ service.nombreProducto }}</td>
+                            <td>{{ service.descripcionProducto }}</td>
+                            <td>{{ service.precioProducto }}</td>
+                            <td><img src="{{ service.imagenProducto.url }}" class="product-image"></td>
+                            <td><a href="{% url 'eliminarVehiculo' service.id %}" class="btn">Eliminar</a></td>
+                            <td><a href="{% url 'actualizar' vehiculoID=service.id %}">Actualizar</a></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

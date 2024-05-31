@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="{% static 'css/stylesAggvehiculo.css' %}">
+</head>
+
+<body>
+    {% include 'components/menuAdmin.html' %}
+    <div class="all">
+        <div class="container">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <h1>Registro de vehiculos</h1>
+                <div class="inputs-box">
+                    <input type="text" name="nombreProducto" id="id_nombreProducto" class="form-control" maxlength="50" placeholder="Referencia" required>
+                    <i class="bi bi-car-front-fill"></i>
+                </div>
+                <div class="inputs-box">
+                    <input type="text" name="descripcionProducto" id="id_descripcionProducto" class="form-control" maxlength="250" placeholder="descripcion" required>
+                    <i class="bi bi-card-text"></i>
+                </div>
+                <div class="inputs-box">
+                    <input type="text" name="precioProducto" id="id_precioProducto" class="form-control" maxlength="50" placeholder="Precio" required>
+                    <i class="bi bi-currency-dollar"></i>
+                </div>
+                <div class="inputs-box">
+                    <input type="file" name="imagenProducto" id="id_imagenProducto" class="form-control" required>
+                    <i class="bi bi-file-image-fill"></i>
+                </div>
+                <button type="submit" class="btn btn-primary">Registrarse</button>
+            </form>
+        </div>
+    </div>
+    
+    <!--
+    <div class="all">
+        <h1>Agregar Servicio</h1>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="text" name="nombreProducto" id="id_nombreProducto" class="form-control" maxlength="50"
+                required>
+            <label class="lbl-user" for="search">
+                <span class="txt-user">
+                    Buscar por Nombre de usuario:
+                </span>
+            </label>
+
+            <input type="text" name="descripcionProducto" id="id_descripcionProducto" class="form-control"
+                maxlength="250" required>
+
+            <input type="text" name="precioProducto" id="id_precioProducto" class="form-control" maxlength="50"
+                required>
+
+            <input type="file" name="imagenProducto" id="id_imagenProducto" class="form-control" required>
+            <button type="submit" class="btn">Agregar</button>
+        </form>
+    </div>-->
+</body>
+
+</html>

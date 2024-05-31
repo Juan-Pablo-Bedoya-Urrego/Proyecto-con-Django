@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="{% static 'css/stylesRegister.css' %}">
+</head>
+
+<body>
+    {% include 'components/menu.html' %}
+    <div class="all">
+        <div class="container">
+            <form method="post">
+                {% csrf_token %}
+                <h1>Registro</h1>
+                <div class="inputs-box">
+                    <input type="email" name="email" id="id_email" class="form-control" placeholder="email" required>
+                    <i class="bi bi-envelope-at-fill"></i>
+                </div>
+                <div class="inputs-box">
+                    <input type="text" name="name" id="id_name" class="form-control" maxlength="250" placeholder="name" required>
+                    <i class="bi bi-person-circle"></i>
+                </div>
+                <div class="inputs-box">
+                    <input type="text" name="lastname" id="id_lastname" class="form-control" maxlength="250" placeholder="lastname" required>
+                    <i class="bi bi-person-circle"></i>
+                </div>
+                <div class="inputs-box">
+                    <input type="text" name="username" id="id_username" class="form-control" maxlength="250" placeholder="username" required>
+                    <i class="bi bi-person-fill"></i>
+                </div>
+                <div class="inputs-box">
+                    <input type="password" name="password" id="id_password" class="form-control" maxlength="250" placeholder="password" required>
+                    <i class="bi bi-lock-fill"></i>
+                </div>
+                <div class="remember-forgot">
+                    <label><input type="checkbox" required>Acepto terminos y condiciones</label>
+                </div>
+                <button type="submit" class="btn btn-primary">Registrarse</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

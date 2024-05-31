@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% for servi in servicios %}
+    <h1>nombre: {{ servi.nombreProducto }}</h1>
+    <p>Descripcion: {{ servi.descripcionProducto }}</p>
+    <h5>Precio: {{ servi.precioProducto }}</h5>
+    <img src="{{ servi.imagenProducto.url }}">
+    {% endfor %}
+</body>
+</html>

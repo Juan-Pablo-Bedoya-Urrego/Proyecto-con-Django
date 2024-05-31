@@ -1,0 +1,42 @@
+{% load static %}
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="{% static 'css/stylesMenuAdmin.css' %}">
+</head>
+
+<body>
+    <nav>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+            <i class="bi bi-list"></i>
+        </label>
+        <a href="{% url 'inicio' %}" class="alogo">
+            <img src="{% static 'img/bing.svg' %}" alt="" class="logo">
+        </a>
+        <ul>
+            {% if request.user.is_authenticated %}
+            <li class="dropdown">
+                <a href="{% url 'confi' %}" class="dropbtn">
+                    <i id="gear" class="bi bi-gear"></i>Productos
+                </a>
+                <div class="dropdown-content">
+                    <a href="{% url 'verVehiculo' %}">Ver</a>
+                    <a href="{% url 'agregar' %}">Agregar</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="{% url 'confi' %}" class="dropbtn">
+                    <i id="gear" class="bi bi-gear"></i>Administar usuarios
+                </a>
+                <div class="dropdown-content">
+                    <a href="{% url 'listauser' %}">Lista usuarios</a>
+                </div>
+            </li>
+            <li><a href="{% url 'salida' %}"><i id="door" class="bi bi-door-closed"></i>cerrar sesión</a></li>
+            {% else %}
+            <li><a href="{% url 'login' %}"><i id="door" class="bi bi-door-open"></i>login</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+</body>
